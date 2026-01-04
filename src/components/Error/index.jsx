@@ -1,4 +1,3 @@
-import React from "react";
 import UseGetApi from "../../hooks/useGet";
 
 function Error() {
