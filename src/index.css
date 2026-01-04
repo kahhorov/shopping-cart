@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-gray: #4a5565;
+  --color-linear-1: #357cff;
+  --color-linear-2: #6060ff;
+  --color-primary: #187cd2;
+  --color-black: #000;
+  --color-white: #fff;
+}
+@layer base {
+  #root {
+    @apply h-screen flex flex-col;
+  }
+  button {
+    @apply cursor-pointer;
+  }
+}
+@layer utilities {
+  .container {
+    @apply w-full max-w-[1332px] p-4 mx-auto;
+  }
+}
