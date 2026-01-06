@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { baseAxios } from "../axios";
+import { useNavigate } from "react-router-dom";
 
-function UseGetApi() {
+function UseGetApi(id = "") {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   async function getApi() {
     setLoading(true);
     try {
-      const response = await baseAxios();
+      const response = await baseAxios({ url: `/${id}` });
       setData(response.data);
     } catch (error) {
       setError(error.message);

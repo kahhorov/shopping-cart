@@ -8,6 +8,9 @@
   --color-white: #fff;
 }
 @layer base {
+  body {
+    font-family: "Noto Sans JP Variable", sans-serif;
+  }
   #root {
     @apply h-screen flex flex-col;
   }

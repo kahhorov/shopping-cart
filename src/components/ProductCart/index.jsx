@@ -3,50 +3,53 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { useState } from "react";
 // icons
 import { MdAttachMoney } from "react-icons/md";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToCard } from "../../features/productsSlice";
+import { useNavigate } from "react-router-dom";
 //
 function ProductCard({ product }) {
-  const { image: img, title: tit, description, price } = product;
-
-  const [expandedTitle, seExpandedTitle] = useState(true);
-  const [expandedDescrip, seExpandedDescrip] = useState(true);
+  const { image, title, description, price } = product;
   const dispatch = useDispatch();
-
-  const title =
-    tit.length > 22 && expandedTitle ? tit.slice(0, 22) + "..." : tit;
-
-  const descrip =
-    description.length > 40 && expandedDescrip
-      ? description.slice(0, 50) + "....More"
-      : description;
-
-  function handleAdd() {
+  const navigate = useNavigate();
+  function handleAdd(e) {
     dispatch(addToCard({ ...product }));
+    e.stopPropagation();
+    e.preventDefault();
+  }
+
+  function handleClick(id) {
+    navigate("/product/" + id);
   }
 
   return (
-    <Card sx={{ padding: "10px 0" }} className="selection:text-primary">
-      <img src={img} alt={title} className="w-full h-[200px] object-contain" />
+    <Card
+      onClick={() => handleClick(product.id)}
+      sx={{ padding: "10px 0" }}
+      className="selection:text-primary"
+    >
+      <img
+        src={image}
+        alt={title.length > 18 ? title.slice(0, 18) + "..." : title}
+        className="w-full h-[200px] object-contain p-3"
+      />
       <CardContent>
         <Typography
           gutterBottom
           variant="h6"
           component="div"
           sx={{ cursor: "pointer" }}
-          onClick={() => seExpandedTitle(!expandedTitle)}
         >
-          {title}
+          {title.length > 18 ? title.slice(0, 18) + "..." : title}
         </Typography>
         <Typography
           variant="body2"
           sx={{ color: "text.secondary", cursor: "pointer" }}
-          onClick={() => seExpandedDescrip(!expandedDescrip)}
         >
-          {descrip}
+          {description.length > 45
+            ? description.slice(0, 45) + "..."
+            : description}
         </Typography>
       </CardContent>
       <CardActions>
@@ -57,7 +60,7 @@ function ProductCard({ product }) {
         <Button
           size="medium"
           sx={{ display: "flex", gap: "5px" }}
-          onClick={handleAdd}
+          onClick={(e) => handleAdd(e)}
         >
           <svg
             width="20"

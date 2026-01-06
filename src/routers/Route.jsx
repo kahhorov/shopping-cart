@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "../layouts";
-import { Home } from "../pages";
-
+import { Cart, Home, Product } from "../pages";
+import { PageNotFound } from "../components";
 function Route() {
   const router = createBrowserRouter([
     {
@@ -12,11 +12,19 @@ function Route() {
           index: true,
           element: <Home />,
         },
+        {
+          path: "/cart",
+          element: <Cart />,
+        },
+        {
+          path: "/product/:id",
+          element: <Product />,
+        },
       ],
     },
     {
       path: "*",
-      element: <div>Page Not Found</div>,
+      element: <PageNotFound />,
     },
   ]);
   return <RouterProvider router={router} />;

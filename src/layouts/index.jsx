@@ -1,11 +1,19 @@
 import { Outlet } from "react-router-dom";
-import { Footer, Navbar } from "../components";
+import { Error, Footer, Navbar } from "../components";
+import UseGetApi from "../hooks/useGet";
 
 function MainLayout() {
+  const { error } = UseGetApi();
+  console.log(error);
+
+  if (error) {
+    return <Error />;
+  }
+
   return (
     <>
       <Navbar />
-      <main className="grow container mt-40">
+      <main className="grow mt-30 container">
         <Outlet />
       </main>
       <Footer />
