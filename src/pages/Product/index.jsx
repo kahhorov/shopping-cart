@@ -2,7 +2,7 @@ import * as React from "react";
 import Rating from "@mui/material/Rating";
 import Box from "@mui/material/Box";
 import StarIcon from "@mui/icons-material/Star";
-import UseGetApi from "../../hooks/useGet";
+import UseGetApi from "../../hooks/UseGet";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
