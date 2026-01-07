@@ -18,7 +18,7 @@ import { GoHome } from "react-icons/go";
 import Tooltip from "@mui/material/Tooltip";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
-import UseGetApi from "../../hooks/useGet";
+import UseGetApi from "../../hooks/UseGet";
 import { MdDeleteOutline } from "react-icons/md";
 
 function Cart() {
