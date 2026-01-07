@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 import { useEffect } from "react";
-import UseGetApi from "../../hooks/useGet";
+import UseGetApi from "../../hooks/UseGet";
 
 function Error() {
   const { error, data, loading } = UseGetApi();
