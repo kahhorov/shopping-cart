@@ -1,5 +1,5 @@
 import { ProductCart, Loader } from "../../components";
-import UseGetApi from "../../hooks/useGet";
+import UseGetApi from "../../hooks/UseGet";
 
 function Home() {
   const { data, loading } = UseGetApi();
