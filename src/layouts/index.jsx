@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Error, Footer, Navbar } from "../components";
-import UseGetApi from "../hooks/useGet";
+import UseGetApi from "../hooks/UseGet";
 
 function MainLayout() {
   const { error } = UseGetApi();
